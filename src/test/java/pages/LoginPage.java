@@ -6,10 +6,15 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
 
-    private static final String EMAIL = "#inputEmail";
-    private static final String PASSWORD = "#inputPassword";
-    private static final String REMEMBER_ME_CHECKBOX = ".custom-control-indicator";
-    private static final String SUBMIT_BUTTON = "#btnLogin";
+    private final static String EMAIL = "#inputEmail";
+    private final static String PASSWORD = "#inputPassword";
+    private final static String REMEMBER_ME_CHECKBOX = ".custom-control-indicator";
+    private final static String SUBMIT_BUTTON = "#btnLogin";
+
+    @Override
+    public boolean isOpened() {
+        return $(SUBMIT_BUTTON).getText().equals("Login") && super.isOpened();
+    }
 
     public LoginPage open() {
         Selenide.open("/");

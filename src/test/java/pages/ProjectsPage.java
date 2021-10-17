@@ -10,9 +10,14 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ProjectsPage extends BasePage {
 
+    private final static String CREATE_CASE_BUTTON = "#create-case-button";
     public static List<String> cases = new ArrayList<>();
 
-    private final static String CREATE_CASE_BUTTON = "#create-case-button";
+    @Override
+    public boolean isOpened() {
+        return $(CREATE_CASE_BUTTON).getText().equals("Case") && super.isOpened();
+    }
+
 
     public CasePage clickToCreateNewCase() {
         $(CREATE_CASE_BUTTON).click();

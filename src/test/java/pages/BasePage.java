@@ -8,6 +8,8 @@ import static com.codeborne.selenide.Selenide.webdriver;
 
 public abstract class BasePage {
 
+    protected final static String TITLE = "//h1[text()='%s']";
+
     public boolean isOpened() {
         WebDriver driver = webdriver().object();
         return new WebDriverWait(driver, 2).until(webDriver ->

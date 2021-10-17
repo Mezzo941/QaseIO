@@ -1,5 +1,7 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
+import org.openqa.selenium.By;
 import wrappers.DropDown;
 import wrappers.Input;
 
@@ -9,12 +11,17 @@ public class CasePage extends BasePage {
 
     private final static String SAVE_BUTTON = "#save-case";
 
+    @Override
+    public boolean isOpened() {
+        $(By.xpath(String.format(TITLE,"Create test case"))).shouldBe(Condition.visible);
+        return super.isOpened();
+    }
+
     public ProjectsPage saveCase() {
         if (!Input.caseTitle.isEmpty()) {
             ProjectsPage.cases.add(Input.caseTitle);
             $(SAVE_BUTTON).click();
-        }
-        else {
+        } else {
             System.out.println("Case title is empty");
         }
         return new ProjectsPage();
@@ -28,7 +35,7 @@ public class CasePage extends BasePage {
         DropDown.input("Prior", "Low");
         DropDown.input("Type", "Smoke");
         DropDown.input("Auto", "Automated");
-        Input.setText("Descr","MAYBE I DON'T DESERVE TO BE HAPPY");
+        Input.setText("Descr", "MAYBE I DON'T DESERVE TO BE HAPPY");
         Input.setText("Pre", "ok");
         Input.setText("Post", "pizdec");
         return this;

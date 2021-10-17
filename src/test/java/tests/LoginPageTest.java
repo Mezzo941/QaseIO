@@ -22,7 +22,6 @@ public class LoginPageTest extends BaseTest {
                         .authorization(EMAIL, PASS)
                         .isOpened()
         );
-
     }
 
 }
