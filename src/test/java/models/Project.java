@@ -1,5 +1,6 @@
 package models;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 import lombok.Data;
 
@@ -7,7 +8,7 @@ import lombok.Data;
 @Builder()
 public class Project {
 
-    private String title;
+    @SerializedName("title") private String projectCode;
     private String code;
 
 }

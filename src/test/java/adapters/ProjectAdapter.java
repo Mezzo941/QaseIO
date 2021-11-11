@@ -13,7 +13,7 @@ public class ProjectAdapter extends BaseAdapter {
         }.getType());
     }
 
-    public QaseResponse<Project> createByApi(Object project, int expectedStatusCode) {
+    public QaseResponse<Project> createByApi(Project project, int expectedStatusCode) {
         return new Gson().fromJson(super.post(project, URI, expectedStatusCode), new TypeToken<QaseResponse<Project>>() {
         }.getType());
     }

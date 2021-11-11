@@ -1,6 +1,7 @@
 package tests;
 
 import adapters.ProjectAdapter;
+import adapters.SuiteAdapter;
 import adapters.TestCaseAdapter;
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeMethod;
@@ -10,10 +11,13 @@ public abstract class BaseTest {
 
     protected final static String EMAIL = "asking1234@mail.ru";
     protected final static String PASS = "e0bajj11";
+    protected static int testCaseId;
+    protected static int suiteId;
 
     LoginPage loginPage;
     ProjectAdapter projectAdapter;
     TestCaseAdapter testCaseAdapter;
+    SuiteAdapter suiteAdapter;
 
     @BeforeMethod
     public void setUp() {
@@ -24,6 +28,7 @@ public abstract class BaseTest {
         loginPage = new LoginPage();
         projectAdapter = new ProjectAdapter();
         testCaseAdapter = new TestCaseAdapter();
+        suiteAdapter = new SuiteAdapter();
     }
 
 }

@@ -14,8 +14,8 @@ public class TestCaseAdapter extends BaseAdapter {
 
     }
 
-    public QaseResponse<TestCase> createByApi(Object testCase, int expectedStatusCode) {
-        return new Gson().fromJson(super.post(testCase, URI, expectedStatusCode), new TypeToken<QaseResponse<TestCase>>() {
+    public QaseResponse<TestCase> createByApi(TestCase testCase, int expectedStatusCode) {
+        return new Gson().fromJson(super.post(testCase, (URI + testCase.getProjectCode()), expectedStatusCode), new TypeToken<QaseResponse<TestCase>>() {
         }.getType());
 
     }
